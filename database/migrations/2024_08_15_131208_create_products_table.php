@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->string('slug');
             $table->boolean('is_active')->default(1);
+            $table->boolean('is_featured')->default(1);
             $table->boolean('is_stock')->default(1);
             $table->integer('order')->nullable();
             $table->timestamps();

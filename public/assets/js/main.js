@@ -1412,15 +1412,6 @@
   })
 
 
-  // Newsletter popup
-  $(document).ready(function () {
-    function showpanel() {
-      $(".anywere-home").addClass("bgshow");
-      $(".rts-newsletter-popup").addClass("popup");
-    }
-    setTimeout(showpanel, 4000)
-  });
-
   $(".anywere-home").on('click', function () {
     $(".rts-newsletter-popup").removeClass("popup")
     $(".anywere-home").removeClass("bgshow")
