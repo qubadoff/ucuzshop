@@ -3,6 +3,7 @@
 use App\Models\SiteSetting;
 use \App\Models\ProductCategory;
 use \Illuminate\Database\Eloquent\Collection;
+use App\Models\Product;
 
 if (! function_exists("siteSetting"))
 {
@@ -17,5 +18,29 @@ if (! function_exists("productCategory"))
     function productCategory(): Collection
     {
         return ProductCategory::all();
+    }
+}
+
+if (! function_exists('slider'))
+{
+    function slider(): Collection
+    {
+        return Product::query()
+            ->where('is_active', 1)
+            ->where('is_featured', 1)
+            ->where('is_stock', 1)
+            ->get();
+    }
+}
+
+if (! function_exists('latestProducts'))
+{
+    function latestProducts(): Collection
+    {
+        return Product::query()
+            ->where('is_active', 1)
+            ->where('is_stock', 1)
+            ->latest()
+            ->get();
     }
 }

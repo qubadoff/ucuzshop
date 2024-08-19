@@ -56,8 +56,8 @@
                 <div class="col-lg-13 col-md-6 col-sm-6">
                     <h3 class="footer-widget-title">Hesab</h3>
                     <ul class="footer-widget">
-                        <li class="widget-list-item"><a href="#0">Daxil ol</a></li>
-                        <li class="widget-list-item"><a href="#0">Qeyd ol</a></li>
+                        <li class="widget-list-item"><a href="{{ route("auth.login") }}">Daxil ol</a></li>
+                        <li class="widget-list-item"><a href="{{ route("auth.register") }}">Qeyd ol</a></li>
                         <li class="widget-list-item"><a href="#0">Şifrəni sıfırla</a></li>
                     </ul>
                 </div>

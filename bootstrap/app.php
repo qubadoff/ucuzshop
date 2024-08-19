@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'checkAuth' => \App\Http\Middleware\CheckAuth::class,
+            'checkAuthWithDashboard' => \App\Http\Middleware\CheckAuth::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

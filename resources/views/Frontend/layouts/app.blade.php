@@ -96,7 +96,7 @@
                                         class="wishlist-dot icon-dot">3</span></div>
                             </div>
                         </div>
-                        <a class='account' href='login.html'><i class="rt-user-2"></i></a>
+                        <a class='account' href='{{ route("dashboard") }}'><i class="rt-user-2"></i></a>
                     </div>
                     <div class="hamburger"><span></span></div>
                 </div>
