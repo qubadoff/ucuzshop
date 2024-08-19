@@ -13,6 +13,8 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
+    public function __construct(){}
+
     public function login(): View
     {
         return \view('Frontend.auth.login');

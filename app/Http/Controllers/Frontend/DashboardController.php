@@ -8,6 +8,8 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
+    public function __construct(){}
+
     public function dashboard(): View
     {
         return \view('Frontend.dashboard.index');
