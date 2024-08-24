@@ -124,8 +124,8 @@
                         <nav class="menus menu-toggle">
                             <ul class="nav__menu">
                                 <li><a class='menu-item' href='{{ route("index") }}'>Ana səhifə</a></li>
-                                <li><a class='menu-item' href='{{ route("index") }}'>Məhsullar</a></li>
-                                <li><a class='menu-item' href='contact.html'>Əlaqə</a></li>
+                                <li><a class='menu-item' href='{{ route("products.all") }}'>Məhsullar</a></li>
+                                <li><a class='menu-item' href='{{ route("contact") }}'>Əlaqə</a></li>
                             </ul>
                         </nav>
                     </div>

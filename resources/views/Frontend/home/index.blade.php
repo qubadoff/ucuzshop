@@ -16,7 +16,7 @@
                                     <div class="contents">
                                         <h1 class="banner-heading mb--30">{{ $slider->name }}</h1>
                                         <div class="banner-action">
-                                            <a class='banner-btn banner-btn2' href='#'><i class="rt-cart-shopping"></i>Ətraflı</a>
+                                            <a class='banner-btn banner-btn2' href='{{ route("products.single", ['slug' => $slider->slug]) }}'><i class="rt-cart-shopping"></i>Ətraflı</a>
                                         </div>
                                     </div>
                                     <div class="banner-product-thumb"><img src="{{ url('/') }}/storage/{{ $slider->cover_image }}" alt="banner-product"></div>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <a class='all-products-link' href='shop.html'>Bütün məhsullar <i
+                <a class='all-products-link' href='{{ route("products.all") }}'>Bütün məhsullar <i
                         class="fal fa-long-arrow-right ml--10"></i></a>
             </div>
         </div>

@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="contact-info">
                                     <a href="mailto:{{ siteSetting()->email }}"
-                                       class="email-address info">{{ siteSetting()->phone }}</a>
+                                       class="email-address info">{{ siteSetting()->email }}</a>
                                     <span class="title">7/24</span>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                     <div class="footer-widget">
                         <h3 class="footer-widget-title">Digər</h3>
                         <ul class="widget-items cata-widget">
-                            <li class="widget-list-item"><a href="#0">Əlaqə</a></li>
+                            <li class="widget-list-item"><a href="{{ route("contact") }}">Əlaqə</a></li>
                             <li class="widget-list-item"><a href="#0">Qaydalar</a></li>
                         </ul>
                     </div>
