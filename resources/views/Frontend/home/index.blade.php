@@ -3,8 +3,6 @@
 @section('title', 'Ana səhifə')
 
 @section('content')
-
-    <!--================= Banner Section Start Here =================-->
     <div class="banner banner-3">
         <div class="swiper bannerSlide">
             <div class="swiper-wrapper">
@@ -54,12 +52,12 @@
                     @forelse(latestProducts() as $product)
                         <div class="col-lg-15 col-md-4 col-sm-6">
                             <div class="product-item product-item2 element-item3">
-                                <a class='product-image' href='#'>
+                                <a class='product-image' href="{{ route("products.single", ['slug' => $product->slug]) }}">
                                     <img src="{{ url('/') }}/storage/{{ $product->cover_image }}" alt="product-image">
                                 </a>
                                 <div class="bottom-content">
                                     <span class="product-catagory">{{ $product->category->name }}</span>
-                                    <a class='product-name' href='#'>{{ $product->name }}</a>
+                                    <a class='product-name' href='{{ route("products.single", ['slug' => $product->slug]) }}'>{{ $product->name }}</a>
                                     <div class="action-wrap">
                                         <span class="product-price">{{ $product->price }} AZN</span>
                                         <a class='addto-cart' href='#'><i class="fal fa-shopping-cart"></i> Səbətə at</a>
@@ -78,6 +76,4 @@
             </div>
         </div>
     </div>
-    <!--================= Recent Products Section End Here =================-->
-
 @endsection

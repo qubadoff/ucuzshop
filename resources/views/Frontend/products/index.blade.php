@@ -12,7 +12,7 @@
                         <span class="items-onlist">
                             Göstərilir {{ ($allProducts->currentPage() - 1) * $allProducts->perPage() + 1 }}
                             - {{ min($allProducts->currentPage() * $allProducts->perPage(), $allProducts->total()) }}
-                            səhifə {{ $allProducts->total() }} nəticədən
+                            dən {{ $allProducts->total() }} nəticə
                         </span>
                         <div class="filter-area">
                             <p class="select-area">
