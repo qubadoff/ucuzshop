@@ -14,7 +14,6 @@
                             <div class="wrapper">
                                 <div class="sub-content">
                                     <img class="line-1" src="{{ asset('/') }}assets/images/banner/wvbo-icon.png" alt="">
-                                    <span class="sub-text">Contact Us</span>
                                 </div>
                                 <h2 class="title">Bizə yazın</h2>
                             </div>
