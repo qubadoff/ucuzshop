@@ -22,12 +22,12 @@ Route::prefix('dashboard')->middleware('checkAuth')->group(function () {
     Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('product')->group(function () {
-    Route::get('products', [ProductController::class, 'allProducts'])->name('products.all');
-    Route::get('products/{slug}', [ProductController::class, 'singleProduct'])->name('products.single');
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'allProducts'])->name('products.all');
+    Route::get('{slug}', [ProductController::class, 'singleProduct'])->name('products.single');
 });
 
-Route::prefix('category')->group(function () {
+Route::prefix('categories')->group(function () {
    Route::get('{slug}', [CategoryController::class, 'singleCategory'])->name('category.single');
 });
 
