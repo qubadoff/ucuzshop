@@ -111,7 +111,6 @@
                     <div class="rts-menu">
                         <nav class="menus menu-toggle">
                             <ul class="nav__menu">
-                                <li><a class='menu-item' href='{{ route("index") }}'>Ana səhifə</a></li>
                                 @forelse(productCategory() as $category)
                                     <li><a class='menu-item' href='{{ route("products.all") }}'>{{ $category->name }}</a></li>
                                 @empty
