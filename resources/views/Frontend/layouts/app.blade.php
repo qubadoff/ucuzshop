@@ -108,24 +108,15 @@
             <div class="container">
                 <div class="navbar-inner">
                     <a class='logo' href='{{ route("index") }}'><img src="{{ url('/') }}/storage/{{ siteSetting()->logo }}" alt="umart-logo"></a>
-                    <div class="catagory-select-area">
-                        <select class="custom-select">
-                            <option value="hide">Kateqoriyalar</option>
-                            @forelse(productCategory() as $category)
-                                <option value="{{ $category->id }}">
-                                    <a href="#" target="_blank">{{ $category->name }}</a>
-                                </option>
-                            @empty
-                                No Data
-                            @endforelse
-                        </select>
-                    </div>
                     <div class="rts-menu">
                         <nav class="menus menu-toggle">
                             <ul class="nav__menu">
                                 <li><a class='menu-item' href='{{ route("index") }}'>Ana səhifə</a></li>
-                                <li><a class='menu-item' href='{{ route("products.all") }}'>Məhsullar</a></li>
-                                <li><a class='menu-item' href='{{ route("contact") }}'>Əlaqə</a></li>
+                                @forelse(productCategory() as $category)
+                                    <li><a class='menu-item' href='{{ route("products.all") }}'>{{ $category->name }}</a></li>
+                                @empty
+                                    No Data !
+                                @endforelse
                             </ul>
                         </nav>
                     </div>
