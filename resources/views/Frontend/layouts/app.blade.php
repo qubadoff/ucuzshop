@@ -171,19 +171,11 @@
             <ul id="mobile-menu-active">
                 <li><a class='mm-link' href='{{ route("index") }}'>Ana Səhifə</a></li>
                 <li><a class='mm-link' href='{{ route("products.all") }}'>Bütün məhsullar</a></li>
-
-                <li class="has-dropdown firstlvl">
-                    <a class='mm-link' href='#'>Kateqoriyalar <i class="rt-angle-down"></i></a>
-                    <ul class="sub-menu">
-                        @forelse(productCategory() as $category)
-                            <li><a href='{{ route("category.single", ['slug' => $category->slug]) }}'>{{ $category->name }}</a></li>
-                        @empty
-                            No Data !
-                        @endforelse
-                    </ul>
-                </li>
-
-                <li><a class='mm-link' href='{{ route("contact") }}'>Əlaqə</a></li>
+                @forelse(productCategory() as $category)
+                    <li><a class='mm-link' href='{{ route("category.single") }}'>{{ $category->name }}</a></li>
+                @empty
+                    No Data !
+                @endforelse
             </ul>
         </nav>
         <!-- side-mobile-menu end -->
