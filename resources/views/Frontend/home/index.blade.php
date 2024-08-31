@@ -3,43 +3,6 @@
 @section('title', 'Ana səhifə')
 
 @section('content')
-    <div class="banner banner-3">
-        <div class="swiper bannerSlide">
-            <div class="swiper-wrapper">
-                @forelse(slider() as $slider)
-                    <div class="swiper-slide">
-                        <div class="banner-single bg-image bg-image-3">
-                            <div class="container">
-                                <div class="single-inner">
-                                    <div class="contents">
-                                        <h1 class="banner-heading mb--30">{{ $slider->name }}</h1>
-                                        <div class="banner-action">
-                                            <a class='banner-btn banner-btn2' href='{{ route("products.single", ['slug' => $slider->slug]) }}'><i class="rt-cart-shopping"></i>Ətraflı</a>
-                                        </div>
-                                    </div>
-                                    <div class="banner-product-thumb"><img src="{{ url('/') }}/storage/{{ $slider->cover_image }}" alt="banner-product"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    No data !
-                @endforelse
-            </div>
-            <div class="slider-navigation">
-                <div class="swiper-button-prev slider-btn prev"><i class="fal fa-long-arrow-up"></i></div>
-                <div class="swiper-button-next slider-btn next"><i class="fal fa-long-arrow-down"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--================= Banner Section End Here =================-->
-
-    </header>
-    <!--================= Header Section End Here =================-->
-
-
-
     <!--================= Recent Products Section Start Here =================-->
     <div class="rts-recent_products-section section-gap">
         <div class="container">
