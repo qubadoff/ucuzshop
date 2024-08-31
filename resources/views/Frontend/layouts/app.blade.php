@@ -172,7 +172,7 @@
                 <li><a class='mm-link' href='{{ route("index") }}'>Ana Səhifə</a></li>
                 <li><a class='mm-link' href='{{ route("products.all") }}'>Bütün məhsullar</a></li>
                 @forelse(productCategory() as $category)
-                    <li><a class='mm-link' href='{{ route("category.single") }}'>{{ $category->name }}</a></li>
+                    <li><a class='mm-link' href='{{ route("category.single", ['slug' => $category->slug]) }}'>{{ $category->name }}</a></li>
                 @empty
                     No Data !
                 @endforelse
