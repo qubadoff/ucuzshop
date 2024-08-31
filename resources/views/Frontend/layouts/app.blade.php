@@ -169,7 +169,6 @@
         <!-- side-mobile-menu start -->
         <nav class="side-mobile-menu side-mobile-menu1 side-mobile-menu2">
             <ul id="mobile-menu-active">
-                <li><a class='mm-link' href='{{ route("index") }}'>Ana Səhifə</a></li>
                 <li><a class='mm-link' href='{{ route("products.all") }}'>Bütün məhsullar</a></li>
                 @forelse(productCategory() as $category)
                     <li><a class='mm-link' href='{{ route("category.single", ['slug' => $category->slug]) }}'>{{ $category->name }}</a></li>
