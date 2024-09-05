@@ -33,6 +33,9 @@ class ProductResource extends Resource
 
     protected static ?string $label = 'Məhsul';
 
+    /**
+     * @throws \Exception
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -57,6 +60,7 @@ class ProductResource extends Resource
                         ->downloadable()
                         ->openable()
                         ->imageEditor()
+                        ->imageEditorMode(2)
                         ->imageEditorAspectRatios([
                             '16:9',
                             '4:3',
@@ -71,6 +75,7 @@ class ProductResource extends Resource
                         ->downloadable()
                         ->openable()
                         ->imageEditor()
+                        ->imageEditorMode(2)
                         ->imageEditorAspectRatios([
                             '16:9',
                             '4:3',
