@@ -81,7 +81,14 @@
                 <div class="axil-google-map-wrap axil-section-gap pb--0">
                     <div class="mapouter">
                         <div class="gmap_canvas">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.554120127887!2d49.74177247657191!3d40.45520685329583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40308577c2b81a73%3A0x6efd2ec00809fd77!2sUcuz%20Shop%20Magazasi!5e1!3m2!1sen!2saz!4v1725526696055!5m2!1sen!2saz" width="1080" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.554120127887!2d49.74177247657191!3d40.45520685329583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40308577c2b81a73%3A0x6efd2ec00809fd77!2sUcuz%20Shop%20Magazasi!5e1!3m2!1sen!2saz!4v1725526696055!5m2!1sen!2saz"
+                                    width="1300"
+                                    height="500"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     </div>
                 </div>
