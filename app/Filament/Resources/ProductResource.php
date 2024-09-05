@@ -50,14 +50,19 @@ class ProductResource extends Resource
                         ->image()
                         ->downloadable()
                         ->openable()
-                        ->imageResizeMode('cover'),
+                        ->imageResizeMode('cover')
+                        ->imageResizeTargetWidth('255')
+                        ->imageResizeTargetHeight('206'),
                     FileUpload::make('image')
                         ->required()
                         ->label('Digər şəkillər')
                         ->image()
                         ->multiple()
                         ->downloadable()
-                        ->openable(),
+                        ->openable()
+                        ->imageResizeMode('cover')
+                        ->imageResizeTargetWidth('255')
+                        ->imageResizeTargetHeight('206'),
                 ])->columns(3),
                 Section::make([
                     Select::make('is_active')->options([
