@@ -66,6 +66,7 @@
                             </a>
                             <div class="my-account-dropdown">
                                 @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
+                                    <p>{{ userData()->name }}</p>
                                     <div class="login-btn">
                                         <a href="{{ route("dashboard") }}" class="axil-btn btn-bg-primary">Profil</a>
                                     </div>
