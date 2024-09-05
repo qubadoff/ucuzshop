@@ -55,7 +55,13 @@ class ProductResource extends Resource
                         ->label('Əsas şəkil')
                         ->image()
                         ->downloadable()
-                        ->openable(),
+                        ->openable()
+                        ->imageEditor()
+                        ->imageEditorAspectRatios([
+                            '16:9',
+                            '4:3',
+                            '1:1',
+                        ]),
 
                     FileUpload::make('image')
                         ->required()
@@ -63,7 +69,13 @@ class ProductResource extends Resource
                         ->image()
                         ->multiple()
                         ->downloadable()
-                        ->openable(),
+                        ->openable()
+                        ->imageEditor()
+                        ->imageEditorAspectRatios([
+                            '16:9',
+                            '4:3',
+                            '1:1',
+                        ]),
                 ])->columns(3),
                 Section::make([
                     Select::make('is_active')->options([
