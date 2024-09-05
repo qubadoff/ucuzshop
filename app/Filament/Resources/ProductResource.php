@@ -49,20 +49,15 @@ class ProductResource extends Resource
                         ->label('Əsas şəkil')
                         ->image()
                         ->downloadable()
-                        ->openable()
-                        ->imageResizeMode('cover')
-                        ->imageResizeTargetWidth('255')
-                        ->imageResizeTargetHeight('206'),
+                        ->openable(),
+
                     FileUpload::make('image')
                         ->required()
                         ->label('Digər şəkillər')
                         ->image()
                         ->multiple()
                         ->downloadable()
-                        ->openable()
-                        ->imageResizeMode('cover')
-                        ->imageResizeTargetWidth('255')
-                        ->imageResizeTargetHeight('206'),
+                        ->openable(),
                 ])->columns(3),
                 Section::make([
                     Select::make('is_active')->options([
