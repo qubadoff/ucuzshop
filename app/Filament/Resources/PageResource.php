@@ -66,7 +66,7 @@ class PageResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ])->reorderable('order')->defaultSort('created_at', 'desc');
+            ])->reorderable('sort')->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
