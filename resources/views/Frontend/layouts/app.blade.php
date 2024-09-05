@@ -47,7 +47,7 @@
         <div class="card-header">
             <form action="#">
                 <div class="input-group">
-                    <input type="search" class="form-control" name="prod-search" id="prod-search" placeholder="Write Something....">
+                    <input type="search" class="form-control" name="prod-search" id="prod-search" placeholder="Məhsul axtar">
                     <button type="submit" class="axil-btn btn-bg-primary"><i class="far fa-search"></i></button>
                 </div>
             </form>
@@ -86,34 +86,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="axil-product-list">
-                    <div class="thumbnail">
-                        <a href="single-product.html">
-                            <img src="assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
-                        </a>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-rating">
-                                <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
-                            <span class="rating-number"><span>100+</span> Reviews</span>
-                        </div>
-                        <h6 class="product-title"><a href="single-product.html">Media Remote</a></h6>
-                        <div class="product-price-variant">
-                            <span class="price current-price">$29.99</span>
-                            <span class="price old-price">$49.99</span>
-                        </div>
-                        <div class="product-cart">
-                            <a href="cart.html" class="cart-btn"><i class="fal fa-shopping-cart"></i></a>
-                            <a href="wishlist.html" class="cart-btn"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -124,7 +96,7 @@
 <div class="cart-dropdown" id="cart-dropdown">
     <div class="cart-content-wrap">
         <div class="cart-header">
-            <h2 class="header-title">Cart review</h2>
+            <h2 class="header-title">Səbət</h2>
             <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
         </div>
         <div class="cart-body">
@@ -135,16 +107,6 @@
                         <button class="close-btn"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="item-content">
-                        <div class="product-rating">
-                                <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-                            <span class="rating-number">(64)</span>
-                        </div>
                         <h3 class="item-title"><a href="single-product-3.html">Wireless PS Handler</a></h3>
                         <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
                         <div class="pro-qty item-quantity">
@@ -152,62 +114,16 @@
                         </div>
                     </div>
                 </li>
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product-2.html"><img src="assets/images/product/electric/product-02.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <div class="product-rating">
-                                <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-                            <span class="rating-number">(4)</span>
-                        </div>
-                        <h3 class="item-title"><a href="single-product-2.html">Gradient Light Keyboard</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>255.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="5">
-                        </div>
-                    </div>
-                </li>
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product-3.html"><img src="assets/images/product/electric/product-03.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <div class="product-rating">
-                                <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
-                            <span class="rating-number">(6)</span>
-                        </div>
-                        <h3 class="item-title"><a href="single-product.html">HD CC Camera</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>200.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="100">
-                        </div>
-                    </div>
-                </li>
             </ul>
         </div>
         <div class="cart-footer">
             <h3 class="cart-subtotal">
-                <span class="subtotal-title">Subtotal:</span>
+                <span class="subtotal-title">Ümumi:</span>
                 <span class="subtotal-amount">$610.00</span>
             </h3>
             <div class="group-btn">
-                <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
-                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+                <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">Səbətə bax</a>
+                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Sifariş et</a>
             </div>
         </div>
     </div>
@@ -224,7 +140,6 @@
 <script src="{{ asset('/') }}assets/js/vendor/bootstrap.min.js"></script>
 <script src="{{ asset('/') }}assets/js/vendor/slick.min.js"></script>
 <script src="{{ asset('/') }}assets/js/vendor/js.cookie.js"></script>
-<!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
 <script src="{{ asset('/') }}assets/js/vendor/jquery-ui.min.js"></script>
 <script src="{{ asset('/') }}assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
 <script src="{{ asset('/') }}assets/js/vendor/jquery.countdown.min.js"></script>

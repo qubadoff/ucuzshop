@@ -49,8 +49,16 @@ if (! function_exists('latestProducts'))
 
 if (! function_exists('pages'))
 {
-    function pages()
+    function pages(): Collection
     {
         return Page::query()->where('status', 1)->orderBy('sort', 'asc')->get();
+    }
+}
+
+if (! function_exists('userData'))
+{
+    function userData(): ?\Illuminate\Contracts\Auth\Authenticatable
+    {
+        return \Illuminate\Support\Facades\Auth::guard('customer')->user();
     }
 }
