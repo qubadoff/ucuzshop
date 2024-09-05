@@ -6,6 +6,8 @@ use \Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use App\Models\Page;
+use \Illuminate\Contracts\Auth\Authenticatable;
+use \Illuminate\Support\Facades\Auth;
 
 if (! function_exists("siteSetting"))
 {
@@ -57,8 +59,8 @@ if (! function_exists('pages'))
 
 if (! function_exists('userData'))
 {
-    function userData(): ?\Illuminate\Contracts\Auth\Authenticatable
+    function userData(): ? Authenticatable
     {
-        return \Illuminate\Support\Facades\Auth::guard('customer')->user();
+        return Auth::guard('customer')->user();
     }
 }
