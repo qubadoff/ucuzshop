@@ -59,13 +59,13 @@
                                     <i class="flaticon-shopping-cart"></i>
                                 </a>
                             </li>
+                            <li class="shopping-cart">
+                                <a href="#" class="cart-dropdown-btn">
+                                    <span class="cart-count">3</span>
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
                         @endif
-                        <li class="shopping-cart">
-                            <a href="#" class="cart-dropdown-btn">
-                                <span class="cart-count">3</span>
-                                <i class="flaticon-shopping-cart"></i>
-                            </a>
-                        </li>
                         <li class="my-account">
                             <a href="javascript:void(0)">
                                 <i class="flaticon-person"></i>
