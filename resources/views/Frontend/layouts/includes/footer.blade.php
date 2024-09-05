@@ -60,13 +60,10 @@
                 <!-- Start Single Widget  -->
                 <div class="col-md-3 col-sm-4">
                     <div class="axil-footer-widget">
-                        <h5 class="widget-title">SUPPORT</h5>
+                        <h5 class="widget-title">Dəstək</h5>
                         <div class="inner">
                             <ul>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="terms-of-service.html">Terms Of Use</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ route("contact") }}">Bizimlə Əlaqə</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +80,7 @@
                 <div class="col-xl-7 col-lg-12">
                     <div class="copyright-left d-flex flex-wrap justify-content-xl-start justify-content-center">
                         <ul class="quick-link">
-                            <li><a href="#">Qaydalar və Razılaşma</a></li>
+                            Created by <li><a href="https://burncode.org" target="_blank"> Burncode LLC</a></li>
                         </ul>
                     </div>
                 </div>
