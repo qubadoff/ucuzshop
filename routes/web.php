@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\PageController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -29,6 +30,10 @@ Route::prefix('products')->group(function () {
 
 Route::prefix('categories')->group(function () {
    Route::get('{slug}', [CategoryController::class, 'singleCategory'])->name('category.single');
+});
+
+Route::prefix('pages')->group(function () {
+    Route::get('{slug}', [PageController::class, 'singlePage'])->name('page');
 });
 
 

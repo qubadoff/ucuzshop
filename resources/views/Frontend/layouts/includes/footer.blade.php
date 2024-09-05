@@ -26,14 +26,14 @@
                 <!-- Start Single Widget  -->
                 <div class="col-md-3 col-sm-4">
                     <div class="axil-footer-widget">
-                        <h5 class="widget-title">ABOUT</h5>
+                        <h5 class="widget-title">Məlumatlar</h5>
                         <div class="inner">
                             <ul>
-                                <li><a href="about-us.html">About</a></li>
-                                <li><a href="about-us.html">Who We Are</a></li>
-                                <li><a href="blog.html">Latest Post</a></li>
-                                <li><a href="shop-sidebar.html">New Arraival</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                @forelse(pages() as $page)
+                                    <li><a href="{{ route("page", ['slug' => $page['slug']]) }}">{{ $page->name }}</a></li>
+                                @empty
+                                    Səhifə yoxdur !
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -42,14 +42,16 @@
                 <!-- Start Single Widget  -->
                 <div class="col-md-3 col-sm-4">
                     <div class="axil-footer-widget">
-                        <h5 class="widget-title">ACCOUNT</h5>
+                        <h5 class="widget-title">Hesab</h5>
                         <div class="inner">
                             <ul>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="sign-up.html">Login / Register</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="shop.html">Shop</a></li>
+                                @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
+                                    <li><a href="{{ route("dashboard") }}">Profil</a></li>
+                                    <li><a href="{{ route("logout") }}">Çıxış</a></li>
+                                @else
+                                    <li><a href="{{ route("auth.login") }}">Daxil ol</a></li>
+                                    <li><a href="{{ route("auth.register") }}">Qeyd ol</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

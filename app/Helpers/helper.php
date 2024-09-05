@@ -5,6 +5,7 @@ use \App\Models\ProductCategory;
 use \Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
 use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use App\Models\Page;
 
 if (! function_exists("siteSetting"))
 {
@@ -43,5 +44,13 @@ if (! function_exists('latestProducts'))
             ->where('is_stock', 1)
             ->orderBy('created_at', 'desc')
             ->paginate(12);
+    }
+}
+
+if (! function_exists('pages'))
+{
+    function pages()
+    {
+        return Page::query()->where('status', 1)->orderBy('sort', 'asc')->get();
     }
 }
