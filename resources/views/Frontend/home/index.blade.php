@@ -1,42 +1,52 @@
 @extends('Frontend.layouts.app')
 
+
 @section('title', 'Ana səhifə')
 
 @section('content')
-    <!--================= Recent Products Section Start Here =================-->
-    <div class="rts-recent_products-section section-gap">
-        <div class="container">
-            <div class="recent-products-header section-header section-header3">
-                <span class="section-title-2 mb--5">Ən son əlavə edilənlər</span>
-                <div class="section-line mb-0"><img src="{{ asset('/') }}assets/images/items/curlyline.png" alt="line"></div>
-            </div>
-            <div class="products-area products-area3">
-                <div class="row justify-content-center">
-                    @forelse(latestProducts() as $product)
-                        <div class="col-lg-15 col-md-4 col-sm-6">
-                            <div class="product-item product-item2 element-item3">
-                                <a class='product-image' href="{{ route("products.single", ['slug' => $product->slug]) }}">
-                                    <img src="{{ url('/') }}/storage/{{ $product->cover_image }}" alt="product-image">
-                                </a>
-                                <div class="bottom-content">
-                                    <span class="product-catagory">{{ $product->category->name }}</span>
-                                    <a class='product-name' href='{{ route("products.single", ['slug' => $product->slug]) }}'>{{ $product->name }}</a>
-                                    <div class="action-wrap">
-                                        <span class="product-price">{{ $product->price }} AZN</span>
-                                        <a class='addto-cart' href='#'><i class="fal fa-shopping-cart"></i> Səbətə at</a>
-                                    </div>
-                                </div>
+    <main class="main-wrapper">
+        <div class="axil-product-area bg-color-white axil-section-gap pb--0">
+            <div class="container">
+                <div class="product-area pb--20">
+                    <div class="axil-isotope-wrapper">
+                        <div class="product-isotope-heading">
+                            <div class="section-title-wrapper">
+                                <h2 class="title">Ən son əlavə olunan məhsullar</h2>
                             </div>
                         </div>
-                    @empty
-                        No data !
-                    @endforelse
+                        <div class="row row--15 isotope-list">
+                            @forelse(latestProducts() as $product)
+                                <div class="col-xl-3 col-lg-4 col-sm-6 col-12 mb--30 product music">
+                                    <div class="axil-product product-style-one">
+                                        <div class="thumbnail">
+                                            <a href="{{ route("products.single", $product->slug ?? "") }}">
+                                                <img data-sal="fade" data-sal-delay="100" data-sal-duration="1500" src="{{ url('/') }}/storage/{{ $product->cover_image }}" alt="{{ $product->cover_image }}">
+                                            </a>
+                                            <div class="product-hover-action">
+                                                <ul class="cart-action">
+                                                    <li class="select-option"><a href="{{ route("products.single", $product->slug ?? "") }}">Ətraflı</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="inner">
+                                                <h5 class="title"><a href="{{ route("products.single", $product->slug ?? "") }}">{{ $product->name }} <span class="verified-icon"><i class="fas fa-badge-check"></i></span></a></h5>
+                                                <div class="product-price-variant">
+                                                    <span class="price current-price">{{ $product->price }} azn</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                No Data !
+                            @endforelse
+                        </div>
+
+                        {{ latestProducts()->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <a class='all-products-link' href='{{ route("products.all") }}'>Bütün məhsullar <i
-                        class="fal fa-long-arrow-right ml--10"></i></a>
-            </div>
         </div>
-    </div>
+    </main>
 @endsection

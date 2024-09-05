@@ -1,3 +1,7 @@
-Profil
+@extends('Frontend.layouts.app')
 
-<a href="{{ route("logout") }}">Exit</a>
+@section('title', "Profil")
+
+@section('content')
+    <a href="{{ route("logout") }}"> Exit </a>
+@endsection

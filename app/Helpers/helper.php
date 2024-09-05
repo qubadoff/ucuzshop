@@ -4,6 +4,7 @@ use App\Models\SiteSetting;
 use \App\Models\ProductCategory;
 use \Illuminate\Database\Eloquent\Collection;
 use App\Models\Product;
+use \Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 if (! function_exists("siteSetting"))
 {
@@ -35,12 +36,12 @@ if (! function_exists('slider'))
 
 if (! function_exists('latestProducts'))
 {
-    function latestProducts(): Collection
+    function latestProducts(): LengthAwarePaginator
     {
         return Product::query()
             ->where('is_active', 1)
             ->where('is_stock', 1)
-            ->latest()
-            ->get();
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
     }
 }

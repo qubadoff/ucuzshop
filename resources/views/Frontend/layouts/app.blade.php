@@ -1,214 +1,242 @@
-<!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!doctype html>
+<html class="no-js" lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <!--================= Favicon =================-->
-    <link rel="apple-touch-icon" href="{{ asset('/') }}assets/images/fav.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/images/fav.png">
-    <!--================= Bootstrap V5 CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/bootstrap.min.css">
-    <!--================= Font Awesome 5 CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/all.min.css">
-    <!--================= RT Icons CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/rt-icons.css">
-    <!--================= Animate css =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/animate.min.css">
-    <!--================= Magnific popup Plugin =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/magnific-popup.css">
-    <!--================= Swiper Slider Plugin =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/swiper-bundle.min.css">
-    <!--================= Mobile Menu CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/metisMenu.css">
-    <!--================= Preloader CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/preloader.css">
-    <!--================= Main Menu CSS =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/rtsmenu.css">
-    <!--================= Main Stylesheet =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/variables/variable3.css">
-    <!--================= Main Stylesheet =================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/css/main.css">
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/') }}assets/images/favicon.png">
+
+    <!-- CSS  ============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/font-awesome.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/flaticon/flaticon.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/sal.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/vendor/base.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.min.css">
+
 </head>
 
-<body>
 
-<!--================= Preloader Section Start Here =================-->
-<div id="weiboo-load">
-    <div class="preloader-new">
-        <svg class="cart_preloader" role="img" aria-label="Shopping cart_preloader line animation"
-             viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-                <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
-                    <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
-                    <circle cx="43" cy="111" r="13" />
-                    <circle cx="102" cy="111" r="13" />
-                </g>
-                <g class="cart__lines" stroke="currentColor">
-                    <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
-                              stroke-dasharray="338 338" stroke-dashoffset="-338" />
-                    <g class="cart__wheel1" transform="rotate(-90,43,111)">
-                        <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68"
-                                stroke-dashoffset="81.68" />
-                    </g>
-                    <g class="cart__wheel2" transform="rotate(90,102,111)">
-                        <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68"
-                                stroke-dashoffset="81.68" />
-                    </g>
-                </g>
-            </g>
-        </svg>
+<body class="sticky-header">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser.
+<![endif]-->
+<a href="#" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+
+@include('Frontend.layouts.includes.header')
+
+@yield('content')
+
+@include('Frontend.layouts.includes.footer')
+
+
+<!-- Header Search Modal End -->
+<div class="header-search-modal" id="header-search-modal">
+    <button class="card-close sidebar-close"><i class="fas fa-times"></i></button>
+    <div class="header-search-wrap">
+        <div class="card-header">
+            <form action="#">
+                <div class="input-group">
+                    <input type="search" class="form-control" name="prod-search" id="prod-search" placeholder="Write Something....">
+                    <button type="submit" class="axil-btn btn-bg-primary"><i class="far fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="search-result-header">
+                <h6 class="title">24 Result Found</h6>
+                <a href="shop.html" class="view-all">View All</a>
+            </div>
+            <div class="psearch-results">
+                <div class="axil-product-list">
+                    <div class="thumbnail">
+                        <a href="single-product.html">
+                            <img src="assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-rating">
+                                <span class="rating-icon">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fal fa-star"></i>
+                            </span>
+                            <span class="rating-number"><span>100+</span> Reviews</span>
+                        </div>
+                        <h6 class="product-title"><a href="single-product.html">Media Remote</a></h6>
+                        <div class="product-price-variant">
+                            <span class="price current-price">$29.99</span>
+                            <span class="price old-price">$49.99</span>
+                        </div>
+                        <div class="product-cart">
+                            <a href="cart.html" class="cart-btn"><i class="fal fa-shopping-cart"></i></a>
+                            <a href="wishlist.html" class="cart-btn"><i class="fal fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="axil-product-list">
+                    <div class="thumbnail">
+                        <a href="single-product.html">
+                            <img src="assets/images/product/electric/product-09.png" alt="Yantiti Leather Bags">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-rating">
+                                <span class="rating-icon">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fal fa-star"></i>
+                            </span>
+                            <span class="rating-number"><span>100+</span> Reviews</span>
+                        </div>
+                        <h6 class="product-title"><a href="single-product.html">Media Remote</a></h6>
+                        <div class="product-price-variant">
+                            <span class="price current-price">$29.99</span>
+                            <span class="price old-price">$49.99</span>
+                        </div>
+                        <div class="product-cart">
+                            <a href="cart.html" class="cart-btn"><i class="fal fa-shopping-cart"></i></a>
+                            <a href="wishlist.html" class="cart-btn"><i class="fal fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<!--================= Preloader End Here =================-->
+<!-- Header Search Modal End -->
 
-<div class="anywere anywere-home"></div>
 
-<!--================= Header Section Start Here =================-->
-<header id="rtsHeader">
-    <div class="navbar-wrapper">
-        <div class="navbar-part navbar-part navbar-part3">
-            <div class="container">
-                <div class="navbar-inner navbar-inner2">
-                    <a class='logo' href='{{ route("index") }}'><img src="{{ url('/') }}/storage/{{ siteSetting()->logo }}" alt="umart-logo"></a>
-                    <div class="navbar-search-area">
-                        <div class="search-input-inner">
-                            <select class="custom-select">
-                                <option value="hide">Kateqoriyalar</option>
-                                @forelse(productCategory() as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @empty
-                                    No Data
-                                @endforelse
-                            </select>
-                            <div class="input-div">
-                                <div class="search-input-icon">
-                                    <i class="rt-search mr--10"></i>Axtar</div>
-                                <input class="search-input input4" type="text" placeholder="Axtar">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header-action-items header-action-items1">
-                        <div class="cart action-item">
-                            <div class="cart-nav">
-                                <div class="cart-icon icon"><i class="rt-cart"></i><span
-                                        class="wishlist-dot icon-dot">3</span></div>
-                            </div>
-                        </div>
-                        <a class='account' href='{{ route("dashboard") }}'><i class="rt-user-2"></i></a>
-                    </div>
-                    <div class="hamburger"><span></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar-sticky lower-navbar-sticky">
-        <div class="navbar-part navbar-part2 lower-navbar">
-            <div class="container">
-                <div class="navbar-inner">
-                    <a class='logo' href='{{ route("index") }}'><img src="{{ url('/') }}/storage/{{ siteSetting()->logo }}" alt="umart-logo"></a>
-                    <div class="rts-menu">
-                        <nav class="menus menu-toggle">
-                            <ul class="nav__menu">
-                                @forelse(productCategory() as $category)
-                                    <li><a class='menu-item' href='{{ route("products.all") }}'>{{ $category->name }}</a></li>
-                                @empty
-                                    No Data !
-                                @endforelse
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="quick-contact">
-                        <a href="tel:{{  siteSetting()->phone }}" class="phone contact-item"><i class="rt-phone-flip"></i> {{  siteSetting()->phone }} <span
-                                class="separator"></span></a>
-                        <a href="mailto:{{  siteSetting()->email }}" class="email contact-item"><i class="rt-envelope"></i> {{  siteSetting()->email }} </a>
-                    </div>
-                    <div class="hamburger"><span></span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="cart-bar">
+<div class="cart-dropdown" id="cart-dropdown">
+    <div class="cart-content-wrap">
         <div class="cart-header">
-            <h3 class="cart-heading">Səbət</h3>
-            <div class="close-cart"><i class="fal fa-times"></i></div>
+            <h2 class="header-title">Cart review</h2>
+            <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
         </div>
-        <div class="product-area">
-            <div class="product-item">
-                <div class="product-detail">
-                    <div class="product-thumb"><img src="{{ asset('/') }}assets/images/slider/image1.jpg" alt="product-thumb"></div>
-                    <div class="item-wrapper">
-                        <span class="product-name">Test 1</span>
-                        <div class="item-wrapper">
-                            <span class="product-qnty">3 ×</span>
-                            <span class="product-price">$198.00</span>
+        <div class="cart-body">
+            <ul class="cart-item-list">
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product.html"><img src="assets/images/product/electric/product-01.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="item-content">
+                        <div class="product-rating">
+                                <span class="icon">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</span>
+                            <span class="rating-number">(64)</span>
+                        </div>
+                        <h3 class="item-title"><a href="single-product-3.html">Wireless PS Handler</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="15">
                         </div>
                     </div>
-                </div>
-                <div class="cart-edit">
-                    <div class="quantity-edit">
-                        <button class="button"><i class="fal fa-minus minus"></i></button>
-                        <input type="text" class="input" value="3" />
-                        <button class="button plus">+<i class="fal fa-plus plus"></i></button>
+                </li>
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product-2.html"><img src="assets/images/product/electric/product-02.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
                     </div>
-                </div>
+                    <div class="item-content">
+                        <div class="product-rating">
+                                <span class="icon">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</span>
+                            <span class="rating-number">(4)</span>
+                        </div>
+                        <h3 class="item-title"><a href="single-product-2.html">Gradient Light Keyboard</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>255.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="5">
+                        </div>
+                    </div>
+                </li>
+                <li class="cart-item">
+                    <div class="item-img">
+                        <a href="single-product-3.html"><img src="assets/images/product/electric/product-03.png" alt="Commodo Blown Lamp"></a>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="item-content">
+                        <div class="product-rating">
+                                <span class="icon">
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+								<i class="fas fa-star"></i>
+							</span>
+                            <span class="rating-number">(6)</span>
+                        </div>
+                        <h3 class="item-title"><a href="single-product.html">HD CC Camera</a></h3>
+                        <div class="item-price"><span class="currency-symbol">$</span>200.00</div>
+                        <div class="pro-qty item-quantity">
+                            <input type="number" class="quantity-input" value="100">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-footer">
+            <h3 class="cart-subtotal">
+                <span class="subtotal-title">Subtotal:</span>
+                <span class="subtotal-amount">$610.00</span>
+            </h3>
+            <div class="group-btn">
+                <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
+                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
             </div>
         </div>
-        <div class="cart-bottom-area">
-            <span class="total-price">Cəm: <span class="price">0 AZN</span></span>
-            <a class='checkout-btn cart-btn' href='#'>Sifariş et</a>
-            <a class='view-btn cart-btn' href='#'>Səbətə bax</a>
-        </div>
     </div>
-    <!-- slide-bar start -->
-    <aside class="slide-bar">
-        <div class="offset-sidebar">
-            <a class="hamburger-1 mobile-hamburger-1 mobile-hamburger-2 ml--30" href="#"><span><i class="rt-xmark"></i></span></a>
-        </div>
-        <!-- side-mobile-menu start -->
-        <nav class="side-mobile-menu side-mobile-menu1 side-mobile-menu2">
-            <ul id="mobile-menu-active">
-                <li><a class='mm-link' href='{{ route("products.all") }}'>Bütün məhsullar</a></li>
-                @forelse(productCategory() as $category)
-                    <li><a class='mm-link' href='{{ route("category.single", ['slug' => $category->slug]) }}'>{{ $category->name }}</a></li>
-                @empty
-                    No Data !
-                @endforelse
-            </ul>
-        </nav>
-        <!-- side-mobile-menu end -->
-    </aside>
+</div>
 
+<!-- JS
+============================================ -->
+<!-- Modernizer JS -->
+<script src="{{ asset('/') }}assets/js/vendor/modernizr.min.js"></script>
+<!-- jQuery JS -->
+<script src="{{ asset('/') }}assets/js/vendor/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="{{ asset('/') }}assets/js/vendor/popper.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/bootstrap.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/slick.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/js.cookie.js"></script>
+<!-- <script src="assets/js/vendor/jquery.style.switcher.js"></script> -->
+<script src="{{ asset('/') }}assets/js/vendor/jquery-ui.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/jquery.ui.touch-punch.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/jquery.countdown.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/sal.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/jquery.magnific-popup.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/isotope.pkgd.min.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/counterup.js"></script>
+<script src="{{ asset('/') }}assets/js/vendor/waypoints.min.js"></script>
 
-    @yield('content')
-
-    @include('Frontend.layouts.footer')
-
-
-<!--================= Scroll to Top Start =================-->
-<div class="scroll-top-btn scroll-top-btn1 scroll-top-btn2"><i class="fas fa-angle-up arrow-up"></i><i class="fas fa-circle-notch"></i></div>
-<!--================= Scroll to Top End =================-->
-
-<!--================= Jquery latest version =================-->
-<script src="{{ asset('/') }}assets/js/vendors/jquery-3.6.0.min.js"></script>
-<!--================= Bootstrap latest version =================-->
-<script src="{{ asset('/') }}assets/js/vendors/bootstrap.min.js"></script>
-<!--================= Wow.js =================-->
-<script src="{{ asset('/') }}assets/js/vendors/wow.min.js"></script>
-<!--================= Swiper Slider =================-->
-<script src="{{ asset('/') }}assets/js/vendors/swiper-bundle.min.js"></script>
-<!--================= Nice Select =================-->
-<script src="{{ asset('/') }}assets/js/vendors/jquery.nice-select.js"></script>
-<!--================= metisMenu Plugin =================-->
-<script src="{{ asset('/') }}assets/js/vendors/metisMenu.min.js"></script>
-<!--================= Main Menu Plugin =================-->
-<script src="{{ asset('/') }}assets/js/vendors/rtsmenu.js"></script>
-<!--================= Magnefic Popup Plugin =================-->
-<script src="{{ asset('/') }}assets/js/vendors/isotope.pkgd.min.js"></script>
-<!--================= Magnefic Popup Plugin =================-->
-<script src="{{ asset('/') }}assets/js/vendors/jquery.magnific-popup.min.js"></script>
-<!--================= Main Script =================-->
+<!-- Main JS -->
 <script src="{{ asset('/') }}assets/js/main.js"></script>
-</header>
+
 </body>
+</html>

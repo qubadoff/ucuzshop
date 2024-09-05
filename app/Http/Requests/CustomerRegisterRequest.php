@@ -34,7 +34,9 @@ class CustomerRegisterRequest extends FormRequest
         return [
             'name.required' => 'Ad və soyadınızı daxil edin',
             'phone.required' => 'Telefon nomresinizi daxil edin',
-            'password.required' => 'Sifrenizi daxil edin',
+            'phone.unique' => 'Telefon nömrəsi artıq mövcuddur !',
+            'password.required' => 'Şifrəni daxil edin !',
+            'password.min' => 'Şifrə minimum 8 simvol olmalıdır !',
             'password.confirmed' => 'Hər iki şifrə eyni daxil edilməlidir !',
         ];
     }
