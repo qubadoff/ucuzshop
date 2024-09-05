@@ -38,7 +38,7 @@ class EmployeeResource extends Resource
                     TextInput::make('name')->required()->label('Ad'),
                     TextInput::make('phone')->required()->label('Telefon'),
                     TextInput::make('email')->required()->email()->label('Email'),
-                    TextInput::make('password')->password()->label('Şifrə'),
+                    TextInput::make('password')->required()->password()->label('Şifrə'),
                 ])->columns('4'),
                 Section::make([
                     Textarea::make('description')->label('Təsvir'),
