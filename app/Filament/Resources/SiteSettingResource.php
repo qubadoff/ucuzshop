@@ -18,6 +18,11 @@ class SiteSettingResource extends Resource
 
     protected static ?string $label = 'Ayar';
 
+    protected static ?string $navigationGroup = "Digər";
+
+
+    protected static ?int $navigationSort = 6;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

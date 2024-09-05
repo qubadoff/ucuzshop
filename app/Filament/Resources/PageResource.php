@@ -24,6 +24,12 @@ class PageResource extends Resource
 
     protected static ?string $label = 'Səhifə';
 
+    protected static ?string $navigationGroup = "Digər";
+
+
+    protected static ?int $navigationSort = 5;
+
+
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
