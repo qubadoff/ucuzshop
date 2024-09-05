@@ -42,6 +42,6 @@ if (! function_exists('latestProducts'))
             ->where('is_active', 1)
             ->where('is_stock', 1)
             ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            ->paginate(16);
     }
 }
