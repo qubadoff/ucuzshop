@@ -45,7 +45,8 @@ class CartController extends Controller
         }
 
         return response()->json([
+            'success' => true,
             'message' => 'Məhsul səbətə əlavə edildi !',
-        ], 200);
+        ]);
     }
 }
