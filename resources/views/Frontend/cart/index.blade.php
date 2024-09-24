@@ -96,9 +96,9 @@
             const quantityInputs = document.querySelectorAll('.quantity-input');
 
             quantityInputs.forEach(input => {
-                input.addEventListener('change', function () {
+                input.addEventListener('input', function () { // 'change' yerine 'input' kullanmayı deneyin
                     const quantity = this.value;
-                    const productId = this.getAttribute('data-product-id');
+                    const productId = this.dataset.productId; // 'getAttribute' yerine 'dataset' kullanın
 
                     // AJAX isteği gönder
                     fetch('{{ route('cart.update') }}', {
@@ -126,5 +126,6 @@
                 });
             });
         });
+
     </script>
 @endsection
