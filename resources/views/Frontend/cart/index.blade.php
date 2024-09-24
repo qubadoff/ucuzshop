@@ -16,6 +16,7 @@
                             <tr>
                                 <th scope="col" class="product-remove"></th>
                                 <th scope="col" class="product-thumbnail">Məhsul</th>
+                                <th scope="col" class="product-title"></th>
                                 <th scope="col" class="product-price">Qiymət</th>
                                 <th scope="col" class="product-quantity">Say</th>
                                 <th scope="col" class="product-subtotal">Ümumi məbləğ</th>
