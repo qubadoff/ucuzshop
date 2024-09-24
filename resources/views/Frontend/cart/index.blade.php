@@ -27,7 +27,7 @@
                                 <tr>
                                     <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
                                     <td class="product-thumbnail"><a href="{{ route("products.single", ['slug' => $product->product->slug]) }}"><img src="{{ url('/') }}/storage/{{ $product->product->cover_image }}" alt="{{ $product->product->name }}"></a></td>
-                                    <td class="product-title"><a href="single-product.html">Wireless PS Handler</a></td>
+                                    <td class="product-title"><a href="{{ route("products.single", ['slug' => $product->product->slug]) }}">{{ $product->product->name }}</a></td>
                                     <td class="product-price" data-title="Price"><span class="currency-symbol">$</span>124.00</td>
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
