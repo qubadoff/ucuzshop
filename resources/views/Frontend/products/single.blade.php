@@ -90,7 +90,7 @@
     <div id="cart-popup" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
-            <p>Ürün sepete başarıyla eklendi!</p>
+            <p>Məhsul səbətə əlavə edildi !</p>
         </div>
     </div>
 
