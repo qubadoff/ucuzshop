@@ -81,13 +81,50 @@
         <!-- End Shop Area  -->
     </main>
 
-    <!-- Popup modal -->
-    <div id="cart-popup" class="modal" style="display: none;">
-        <div class="modal-content">
+    <style>
+        /* Popup arka plan */
+        .popup {
+            display: none; /* Başlangıçta görünmez */
+            position: fixed;
+            z-index: 9999; /* Üst katmanda göster */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Yarı şeffaf arka plan */
+        }
+
+        /* Popup içeriği */
+        .popup-content {
+            position: relative;
+            margin: 15% auto;
+            padding: 20px;
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Kapatma butonu */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <!-- Popup -->
+    <div id="cart-popup" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
-            <p>Məhsul səbətə əlavə edildi !</p>
+            <p>Ürün sepete başarıyla eklendi!</p>
         </div>
     </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
