@@ -80,7 +80,7 @@
                 <div class="col-xl-7 col-lg-12">
                     <div class="copyright-left d-flex flex-wrap justify-content-xl-start justify-content-center">
                         <ul class="quick-link">
-                            <li>Powered by  <a href="https://burncode.org" target="_blank"> Burncode LLC</a></li>
+                            <li>Powered by  <a href="https://burncode.org" target="_blank"> Burncode LLC</a></li> {{ date("Y") }}
                         </ul>
                     </div>
                 </div>
