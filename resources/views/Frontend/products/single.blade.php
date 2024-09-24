@@ -97,7 +97,7 @@
     <style>
         /* Popup arka plan */
         .popup {
-            display: block; /* Başlangıçta görünmez */
+            display: none; /* Başlangıçta görünmez */
             position: fixed;
             z-index: 9999; /* Üst katmanda göster */
             left: 0;
@@ -127,8 +127,8 @@
             font-weight: bold;
             cursor: pointer;
         }
-
     </style>
+
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
@@ -139,15 +139,15 @@
 
             // Sepete ekle butonuna tıklama işlemi
             addToCartBtn.addEventListener('click', function () {
-                const productId = {{ $product->id }};  // Product ID dinamik olmalı, bu örnekte sabit
+                const productId = {{ $product->id }};
                 const quantity = quantityInput.value;
 
                 // AJAX ile sepete ekleme isteği
-                fetch('{{ route('cart.add') }}', {  // Route kullanarak URL'yi dinamik yapın
+                fetch('{{ route('cart.add') }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'  // CSRF token dinamik olarak alınır
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     body: JSON.stringify({
                         product_id: productId,
@@ -161,13 +161,16 @@
                         return response.json();
                     })
                     .then(data => {
+                        console.log(data); // Yanıtı logla
                         if (data.success) {
                             // Popup aç
                             popup.style.display = 'block';
+                        } else {
+                            console.error('Başarısız:', data.message); // Hata mesajını logla
                         }
                     })
                     .catch(error => {
-                        console.error('Error:', error);  // Hata durumunda mesajı yakala
+                        console.error('Error:', error);
                     });
             });
 
@@ -182,7 +185,7 @@
                 }
             };
         });
-
     </script>
+
 
 @endsection
