@@ -26,7 +26,7 @@
                             @forelse($products as $product)
                                 <tr>
                                     <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
-                                    <td class="product-thumbnail"><a href="single-product.html"><img src="assets/images/product/electric/product-01.png" alt="Digital Product"></a></td>
+                                    <td class="product-thumbnail"><a href="{{ route("products.single", ['slug' => $product->slug']) }}"><img src="{{ url('/') }}/storage/{{ $product->image }}" alt="{{ $product->name }}"></a></td>
                                     <td class="product-title"><a href="single-product.html">Wireless PS Handler</a></td>
                                     <td class="product-price" data-title="Price"><span class="currency-symbol">$</span>124.00</td>
                                     <td class="product-quantity" data-title="Qty">
