@@ -137,12 +137,10 @@
             const popup = document.getElementById('cart-popup');
             const closePopup = document.querySelector('.close');
 
-            // Sepete ekle butonuna tıklama işlemi
             addToCartBtn.addEventListener('click', function () {
                 const productId = {{ $product->id }};
                 const quantity = quantityInput.value;
 
-                // AJAX ile sepete ekleme isteği
                 fetch('{{ route('cart.add') }}', {
                     method: 'POST',
                     headers: {
@@ -156,25 +154,23 @@
                 })
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error("Network response was not ok");
+                            throw new Error("Ağ yanıtı uygun değil");
                         }
                         return response.json();
                     })
                     .then(data => {
-                        console.log(data); // Yanıtı logla
+                        console.log('AJAX Yanıtı:', data);
                         if (data.success) {
-                            // Popup aç
                             popup.style.display = 'block';
                         } else {
-                            console.error('Başarısız:', data.message); // Hata mesajını logla
+                            console.error('Başarısız:', data.message);
                         }
                     })
                     .catch(error => {
-                        console.error('Error:', error);
+                        console.error('Hata:', error);
                     });
             });
 
-            // Popup kapatma işlemi
             closePopup.addEventListener('click', function () {
                 popup.style.display = 'none';
             });
