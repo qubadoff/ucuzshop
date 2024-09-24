@@ -10,10 +10,6 @@
         <div class="axil-product-cart-area axil-section-gap">
             <div class="container">
                 <div class="axil-product-cart-wrap">
-                    <div class="product-table-heading">
-                        <h4 class="title">Your Cart</h4>
-                        <a href="#" class="cart-clear">Clear Shoping Cart</a>
-                    </div>
                     <div class="table-responsive">
                         <table class="table axil-product-table axil-cart-table mb--40">
                             <thead>
