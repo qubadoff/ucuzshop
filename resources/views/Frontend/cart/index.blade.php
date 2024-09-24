@@ -31,7 +31,9 @@
                                     <td class="product-price" data-title="Price">{{ $product->product->price }}<span class="currency-symbol"> ₼</span></td>
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
+                                            <button class="dec qtybtn">-</button>
                                             <input type="number" class="quantity-input" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}">
+                                            <button class="inc qtybtn">+</button>
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
@@ -96,36 +98,49 @@
             const quantityInputs = document.querySelectorAll('.quantity-input');
 
             quantityInputs.forEach(input => {
-                input.addEventListener('input', function () { // 'change' yerine 'input' kullanmayı deneyin
-                    const quantity = this.value;
-                    const productId = this.dataset.productId; // 'getAttribute' yerine 'dataset' kullanın
+                const productId = input.getAttribute('data-product-id');
 
-                    // AJAX isteği gönder
-                    fetch('{{ route('cart.update') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({
-                            product_id: productId,
-                            quantity: quantity
-                        })
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                console.log('Quantity updated successfully');
-                            } else {
-                                console.error('Failed to update quantity:', data.message);
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                const plusButton = input.parentElement.querySelector('.inc');
+                const minusButton = input.parentElement.querySelector('.dec');
+
+                plusButton.addEventListener('click', function () {
+                    input.value = parseInt(input.value) + 1;
+                    updateQuantity(productId, input.value);
+                });
+
+                minusButton.addEventListener('click', function () {
+                    if (input.value > 1) {
+                        input.value = parseInt(input.value) - 1;
+                        updateQuantity(productId, input.value);
+                    }
                 });
             });
-        });
 
+            function updateQuantity(productId, quantity) {
+                // AJAX isteği gönder
+                fetch('{{ route('cart.update') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        product_id: productId,
+                        quantity: quantity
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('Quantity updated successfully');
+                        } else {
+                            console.error('Failed to update quantity:', data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        });
     </script>
 @endsection
