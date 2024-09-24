@@ -52,4 +52,36 @@ class CartController extends Controller
             'message' => 'Məhsul səbətə əlavə edildi !',
         ]);
     }
+
+    public function update(Request $request): JsonResponse
+    {
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $userID = Auth::guard('customer')->user()->id;
+
+        // Sepetteki öğeyi bul
+        $cartItem = Cart::query()
+            ->where('user_id', $userID)
+            ->where('product_id', $request->product_id)
+            ->first();
+
+        if ($cartItem) {
+            // Miktarı güncelle
+            $cartItem->quantity = $request->quantity;
+            $cartItem->save();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Miqdar uğurla yeniləndi!',
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Məhsul səbətdə tapılmadı!',
+        ]);
+    }
 }

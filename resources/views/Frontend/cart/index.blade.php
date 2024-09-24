@@ -31,7 +31,7 @@
                                     <td class="product-price" data-title="Price">{{ $product->product->price }}<span class="currency-symbol"> ₼</span></td>
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
-                                            <input type="number" class="quantity-input" value="{{ $product->quantity }}">
+                                            <input type="number" class="quantity-input" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}">
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
@@ -89,6 +89,42 @@
             </div>
         </div>
         <!-- End Cart Area  -->
-
     </main>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', function () {
+                    const quantity = this.value;
+                    const productId = this.getAttribute('data-product-id');
+
+                    // AJAX isteği gönder
+                    fetch('{{ route('cart.update') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            product_id: productId,
+                            quantity: quantity
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Quantity updated successfully');
+                            } else {
+                                console.error('Failed to update quantity:', data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                });
+            });
+        });
+    </script>
 @endsection
