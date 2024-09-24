@@ -31,7 +31,7 @@
                                     <td class="product-price" data-title="Price">{{ $product->product->price }}<span class="currency-symbol"> ₼</span></td>
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
-                                            <input type="number" class="quantity-input" value="1">
+                                            <input type="number" class="quantity-input" value="{{ $product->quantity }}">
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
