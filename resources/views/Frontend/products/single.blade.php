@@ -129,7 +129,7 @@
             });
 
             window.onclick = function(event) {
-                if (event.target == popup) {
+                if (event.target === popup) {
                     popup.style.display = 'none';
                 }
             };
