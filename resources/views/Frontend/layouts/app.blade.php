@@ -122,7 +122,7 @@
                 <span class="subtotal-amount">$610.00</span>
             </h3>
             <div class="group-btn">
-                <a href="cart.html" class="axil-btn btn-bg-primary viewcart-btn">Səbətə bax</a>
+                <a href="{{ route("cart.index") }}" class="axil-btn btn-bg-primary viewcart-btn">Səbətə bax</a>
                 <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Sifariş et</a>
             </div>
         </div>
