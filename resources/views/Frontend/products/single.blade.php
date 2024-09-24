@@ -52,12 +52,16 @@
                                     @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                                         <div class="product-action-wrapper d-flex-center">
                                             <!-- Start Quentity Action  -->
-                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                            <div class="pro-qty">
+                                                <input type="text" id="quantity" value="1">
+                                            </div>
                                             <!-- End Quentity Action  -->
 
                                             <!-- Start Product Action  -->
                                             <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.html" class="axil-btn btn-bg-primary">Səbətə at</a></li>
+                                                <li class="add-to-cart">
+                                                    <button class="axil-btn btn-bg-primary" id="add-to-cart-btn">Səbətə at</button>
+                                                </li>
                                             </ul>
                                             <!-- End Product Action  -->
                                         </div>
@@ -76,4 +80,60 @@
         </div>
         <!-- End Shop Area  -->
     </main>
+
+    <!-- Popup modal -->
+    <div id="cart-popup" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Məhsul səbətə əlavə edildi !</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            const quantityInput = document.getElementById('quantity');
+            const popup = document.getElementById('cart-popup');
+            const closePopup = document.querySelector('.close');
+
+            // Sepete ekle butonuna tıklama işlemi
+            addToCartBtn.addEventListener('click', function () {
+                const productId = {{ $product->id }};
+                const quantity = quantityInput.value;
+
+                // Ajax ile sepete ekleme isteği
+                fetch('{{ route("cart.add") }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        product_id: productId,
+                        quantity: quantity
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Popup aç
+                            popup.style.display = 'block';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+
+            // Popup kapatma işlemi
+            closePopup.addEventListener('click', function () {
+                popup.style.display = 'none';
+            });
+
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = 'none';
+                }
+            };
+        });
+    </script>
+
 @endsection
