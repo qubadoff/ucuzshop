@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 @extends('Frontend.layouts.app')
 
 @section('title', "Məhsul - " . $product->name)
@@ -49,7 +50,7 @@
                                         {{ $product->description }}
                                     </p>
                                     <!-- Start Product Action Wrapper  -->
-                                    @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
+                                    @if(Auth::guard('customer')->check())
                                         <div class="product-action-wrapper d-flex-center">
                                             <!-- Start Quentity Action  -->
                                             <div class="pro-qty">
@@ -60,7 +61,9 @@
                                             <!-- Start Product Action  -->
                                             <ul class="product-action d-flex-center mb--0">
                                                 <li class="add-to-cart">
-                                                    <button class="axil-btn btn-bg-primary" id="add-to-cart-btn">Səbətə at</button>
+                                                    <button class="axil-btn btn-bg-primary" id="add-to-cart-btn">Səbətə
+                                                        at
+                                                    </button>
                                                 </li>
                                             </ul>
                                             <!-- End Product Action  -->
@@ -134,7 +137,7 @@
 
             // Sepete ekle butonuna tıklama işlemi
             addToCartBtn.addEventListener('click', function () {
-                const productId = 50;  // Product ID dinamik olmalı, bu örnekte sabit
+                const productId = {{ $product->id }};  // Product ID dinamik olmalı, bu örnekte sabit
                 const quantity = quantityInput.value;
 
                 // AJAX ile sepete ekleme isteği
@@ -171,7 +174,7 @@
                 popup.style.display = 'none';
             });
 
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target === popup) {
                     popup.style.display = 'none';
                 }
