@@ -14,7 +14,9 @@ class CartController extends Controller
 {
     public function index(): View
     {
-        return \view('Frontend.cart.index');
+        $products = Cart::query()->get();
+
+        return \view('Frontend.cart.index', compact('products'));
     }
 
     public function add(Request $request): JsonResponse
