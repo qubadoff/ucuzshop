@@ -1,4 +1,6 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
 @extends('Frontend.layouts.app')
 
 @section('title', "Məhsul - " . $product->name)
@@ -95,7 +97,7 @@
     <style>
         /* Popup arka plan */
         .popup {
-            display: none; /* Başlangıçta görünmez */
+            display: block; /* Başlangıçta görünmez */
             position: fixed;
             z-index: 9999; /* Üst katmanda göster */
             left: 0;
