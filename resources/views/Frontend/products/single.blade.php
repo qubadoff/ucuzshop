@@ -81,6 +81,14 @@
         <!-- End Shop Area  -->
     </main>
 
+    <!-- Popup -->
+    <div id="cart-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <p>Ürün sepete başarıyla eklendi!</p>
+        </div>
+    </div>
+
     <style>
         /* Popup arka plan */
         .popup {
@@ -117,16 +125,7 @@
 
     </style>
 
-    <!-- Popup -->
-    <div id="cart-popup" class="popup">
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <p>Ürün sepete başarıyla eklendi!</p>
-        </div>
-    </div>
-
-
-    <script>
+    <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             const addToCartBtn = document.getElementById('add-to-cart-btn');
             const quantityInput = document.getElementById('quantity');
@@ -135,29 +134,36 @@
 
             // Sepete ekle butonuna tıklama işlemi
             addToCartBtn.addEventListener('click', function () {
-                const productId = {{ $product->id }};
+                const productId = 50;  // Product ID dinamik olmalı, bu örnekte sabit
                 const quantity = quantityInput.value;
 
-                // Ajax ile sepete ekleme isteği
-                fetch('{{ route("cart.add") }}', {
+                // AJAX ile sepete ekleme isteği
+                fetch('{{ route('cart.add') }}', {  // Route kullanarak URL'yi dinamik yapın
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'  // CSRF token dinamik olarak alınır
                     },
                     body: JSON.stringify({
                         product_id: productId,
                         quantity: quantity
                     })
                 })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             // Popup aç
                             popup.style.display = 'block';
                         }
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => {
+                        console.error('Error:', error);  // Hata durumunda mesajı yakala
+                    });
             });
 
             // Popup kapatma işlemi
@@ -171,6 +177,7 @@
                 }
             };
         });
+
     </script>
 
 @endsection
