@@ -111,7 +111,7 @@
                             <h3 class="item-title"><a href="{{ route("products.single", ['slug' => $item->product->slug]) }}">{{ $item->product->name }}</a></h3>
                             <div class="item-price">{{ $item->product->price }}<span class="currency-symbol"> ₼</span></div>
                             <div class="pro-qty item-quantity">
-                                <input type="number" class="quantity-input" value="15">
+                                <input type="number" class="quantity-input" value="{{ $item->quantity }}">
                             </div>
                         </div>
                     </li>
