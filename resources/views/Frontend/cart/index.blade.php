@@ -32,7 +32,7 @@
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
                                             <button class="dec qtybtn">-</button>
-                                            <input type="number" class="quantity-input" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}">
+                                            <input type="number" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}">
                                             <button class="inc qtybtn">+</button>
                                         </div>
                                     </td>
