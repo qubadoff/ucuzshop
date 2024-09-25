@@ -55,7 +55,7 @@
                         @if(\Illuminate\Support\Facades\Auth::guard('customer')->check())
                             <li class="shopping-cart">
                                 <a href="#" class="cart-dropdown-btn">
-                                    <span class="cart-count">3</span>
+                                    <span class="cart-count">{{ cartItems()->count() }}</span>
                                     <i class="flaticon-shopping-cart"></i>
                                 </a>
                             </li>
