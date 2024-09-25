@@ -99,14 +99,17 @@
             quantityInputs.forEach(input => {
                 const productId = input.getAttribute('data-product-id');
 
-                const plusButton = input.closest('.pro-qty').querySelector('.plus'); // Plus button
-                const minusButton = input.closest('.pro-qty').querySelector('.minus'); // Minus button
+                // Butonları doğru şekilde seçin
+                const plusButton = input.closest('.pro-qty').querySelector('.plus');
+                const minusButton = input.closest('.pro-qty').querySelector('.minus');
 
+                // Artı butonuna tıklama olayı
                 plusButton.addEventListener('click', function () {
                     input.value = parseInt(input.value) + 1;
                     updateQuantity(productId, input.value);
                 });
 
+                // Eksi butonuna tıklama olayı
                 minusButton.addEventListener('click', function () {
                     if (input.value > 1) {
                         input.value = parseInt(input.value) - 1;
