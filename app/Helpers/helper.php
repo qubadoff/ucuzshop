@@ -68,8 +68,13 @@ if (! function_exists('userData'))
 
 if (! function_exists('cartItems'))
 {
-    function cartItems(): Collection
+    function cartItems(): \Illuminate\Support\Collection
     {
+        $user = Auth::guard('customer')->user();
+
+        if (!$user) {
+            return collect();
+        }
         return Cart::query()->where('user_id', Auth::guard('customer')->user()->id)->get();
     }
 }
