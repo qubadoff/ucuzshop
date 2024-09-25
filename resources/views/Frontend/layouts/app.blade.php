@@ -101,19 +101,23 @@
         </div>
         <div class="cart-body">
             <ul class="cart-item-list">
-                <li class="cart-item">
-                    <div class="item-img">
-                        <a href="single-product.html"><img src="assets/images/product/electric/product-01.png" alt="Commodo Blown Lamp"></a>
-                        <button class="close-btn"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="item-content">
-                        <h3 class="item-title"><a href="single-product-3.html">Wireless PS Handler</a></h3>
-                        <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
-                        <div class="pro-qty item-quantity">
-                            <input type="number" class="quantity-input" value="15">
+                @forelse(cartItems() as $item)
+                    <li class="cart-item">
+                        <div class="item-img">
+                            <a href="{{ route("products.single", ['slug' => $item->slug]) }}"><img src="{{ url('/') }}/storage/{{ $item->cover_image }}" alt="Commodo Blown Lamp"></a>
+                            <button class="close-btn"><i class="fas fa-times"></i></button>
                         </div>
-                    </div>
-                </li>
+                        <div class="item-content">
+                            <h3 class="item-title"><a href="{{ route("products.single", ['slug' => $item->slug]) }}">{{ $item->name }}</a></h3>
+                            <div class="item-price">{{ $item->price }}<span class="currency-symbol"> ₼</span></div>
+                            <div class="pro-qty item-quantity">
+                                <input type="number" class="quantity-input" value="15">
+                            </div>
+                        </div>
+                    </li>
+                @empty
+                    Səbət boşdur !
+                @endforelse
             </ul>
         </div>
         <div class="cart-footer">

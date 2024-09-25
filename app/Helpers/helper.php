@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cart;
 use App\Models\SiteSetting;
 use \App\Models\ProductCategory;
 use \Illuminate\Database\Eloquent\Collection;
@@ -62,5 +63,13 @@ if (! function_exists('userData'))
     function userData(): ? Authenticatable
     {
         return Auth::guard('customer')->user();
+    }
+}
+
+if (! function_exists('cartItems'))
+{
+    function cartItems(): Collection
+    {
+        return Cart::query()->where('user_id', Auth::guard('customer')->user()->id)->get();
     }
 }
