@@ -1,6 +1,5 @@
 @extends('Frontend.layouts.app')
 
-
 @section('title', 'Səbət')
 
 @section('content')
@@ -102,8 +101,8 @@
             quantityInputs.forEach(input => {
                 const productId = input.getAttribute('data-product-id');
 
-                const plusButton = input.parentElement.querySelector('.inc');
-                const minusButton = input.parentElement.querySelector('.dec');
+                const plusButton = input.nextElementSibling;
+                const minusButton = input.previousElementSibling;
 
                 // Ekleme ve azaltma butonlarına tıklama olaylarını ekle
                 plusButton.addEventListener('click', function () {
