@@ -36,7 +36,7 @@
                                             <button class="inc qtybtn">+</button>
                                         </div>
                                     </td>
-                                    <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
+                                    <td class="product-subtotal" data-title="Subtotal">275.00 <span class="currency-symbol">{{ $product->quantity * $product->price }} ₼</span></td>
                                 </tr>
                             @empty
                                 Səbət boşdur !
