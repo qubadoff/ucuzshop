@@ -99,10 +99,9 @@
             quantityInputs.forEach(input => {
                 const productId = input.getAttribute('data-product-id');
 
-                const plusButton = input.nextElementSibling;
-                const minusButton = input.previousElementSibling;
+                const plusButton = input.closest('.pro-qty').querySelector('.plus'); // Plus button
+                const minusButton = input.closest('.pro-qty').querySelector('.minus'); // Minus button
 
-                // Ekleme ve azaltma butonlarına tıklama olaylarını ekle
                 plusButton.addEventListener('click', function () {
                     input.value = parseInt(input.value) + 1;
                     updateQuantity(productId, input.value);
@@ -117,7 +116,6 @@
             });
 
             function updateQuantity(productId, quantity) {
-                // AJAX isteği gönder
                 fetch('{{ route('cart.update') }}', {
                     method: 'POST',
                     headers: {
