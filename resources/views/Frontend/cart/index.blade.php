@@ -32,7 +32,7 @@
                                     <td class="product-quantity" data-title="Qty">
                                         <div class="pro-qty">
                                             <button class="dec qtybtn">-</button>
-                                            <input type="number" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}">
+                                            <input type="number" class="quantity-input" value="{{ $product->quantity }}" data-product-id="{{ $product->product->id }}" min="1">
                                             <button class="inc qtybtn">+</button>
                                         </div>
                                     </td>
@@ -44,6 +44,7 @@
                             </tbody>
                         </table>
                     </div>
+
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 offset-xl-7 offset-lg-5">
                             <div class="axil-order-summery mt--80">
@@ -87,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -103,6 +105,7 @@
                 const plusButton = input.parentElement.querySelector('.inc');
                 const minusButton = input.parentElement.querySelector('.dec');
 
+                // Ekleme ve azaltma butonlarına tıklama olaylarını ekle
                 plusButton.addEventListener('click', function () {
                     input.value = parseInt(input.value) + 1;
                     updateQuantity(productId, input.value);
@@ -143,4 +146,5 @@
             }
         });
     </script>
+
 @endsection
