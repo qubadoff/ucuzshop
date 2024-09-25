@@ -104,12 +104,12 @@
                 @forelse(cartItems() as $item)
                     <li class="cart-item">
                         <div class="item-img">
-                            <a href="{{ route("products.single", ['slug' => $item->slug]) }}"><img src="{{ url('/') }}/storage/{{ $item->cover_image }}" alt="Commodo Blown Lamp"></a>
+                            <a href="{{ route("products.single", ['slug' => $item->product->slug]) }}"><img src="{{ url('/') }}/storage/{{ $item->product->cover_image }}" alt="{{ $item->product->name }}"></a>
                             <button class="close-btn"><i class="fas fa-times"></i></button>
                         </div>
                         <div class="item-content">
-                            <h3 class="item-title"><a href="{{ route("products.single", ['slug' => $item->slug]) }}">{{ $item->name }}</a></h3>
-                            <div class="item-price">{{ $item->price }}<span class="currency-symbol"> ₼</span></div>
+                            <h3 class="item-title"><a href="{{ route("products.single", ['slug' => $item->product->slug]) }}">{{ $item->product->name }}</a></h3>
+                            <div class="item-price">{{ $item->product->price }}<span class="currency-symbol"> ₼</span></div>
                             <div class="pro-qty item-quantity">
                                 <input type="number" class="quantity-input" value="15">
                             </div>
