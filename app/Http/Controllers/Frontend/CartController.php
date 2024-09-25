@@ -14,7 +14,7 @@ class CartController extends Controller
 {
     public function index(): View
     {
-        $products = Cart::query()->get();
+        $products = Cart::query()->where('user_id', Auth::guard('customer')->user()->id)->get();
 
         return \view('Frontend.cart.index', compact('products'));
     }
